@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets">
+<!--
+ * Copyright 2014-2015 Rudy De Busscher
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+-->
+<h:head>
+    <title>ConFESS Arquillian Graphene demo</title>
+</h:head>
+
+<h:body>
+    <p:messages/>
+    <h:form id="frm">
+        <h:panelGroup rendered="#{loginBean.loggedOn}" >
+            <ui:insert name="content">
+
+            </ui:insert>
+        </h:panelGroup>
+        <h:panelGroup rendered="#{not loginBean.loggedOn}" >
+            <a name="index" href="#{request.contextPath}/index.xhtml" > Please login first </a>
+        </h:panelGroup>
+    </h:form>
+</h:body>
+
+</html>

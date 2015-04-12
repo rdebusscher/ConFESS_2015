@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<!--
+ * Copyright 2014-2015 Rudy De Busscher
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+-->
+<h:head>
+    <title>ConFESS Arquillian Graphene demo</title>
+</h:head>
+
+<h:body>
+    <p:messages/>
+    <h:form id="frm">
+        <h1>Simple member management</h1>
+        <h:panelGroup rendered="#{not loginBean.loggedOn}">
+
+            <p:focus for="userName"/>
+            <p:outputLabel value="User name" for="userName"/> <p:inputText value="#{loginBean.userName}" required="true" id="userName"/> <br/>
+            <p:outputLabel value="password" for="password"/> <p:password value="#{loginBean.password}" required="true" id="password"/> <br/>
+            <p:commandButton ajax="false" value="login" actionListener="#{loginBean.doLogin()}" id="login"/>
+        </h:panelGroup>
+        <h:panelGroup rendered="#{ loginBean.loggedOn}">
+            <p:commandLink value="logout" ajax="false" actionListener="#{loginBean.logout}" id="logout"/> <br/>
+            <p:commandLink value="list" ajax="false" action="personList.xhtml" id="list"/><br/>
+            <p:commandLink value="add" ajax="false" action="addPerson.xhtml" id="add"/>
+        </h:panelGroup>
+    </h:form>
+</h:body>
+
+</html>
